@@ -1,6 +1,6 @@
-# Pepsi-Virus-Remake
+# Pepsi Virus Remake
 
-Remade a friend's Java-based program (which causes chaos) in C#
+Rewritten a friend's Java-based program (which causes chaos) in C#
 
 
 Features:
@@ -15,5 +15,10 @@ Notes:
 
 Usage:
 - Load it up once and see the chaos done
+
+Tips:
+- Logging off the computer can cancel it from being run (or shutting it down or so)
+- Try to have a program that prevents the computer from shutting down (not saving work as an example)
+  - The program can then terminate and you can resume work
 
 You can download the program [here](https://www.dropbox.com/s/dt4c9l9756rc4zx/Pepsi.exe?dl=0) (at your OWN risk!)
