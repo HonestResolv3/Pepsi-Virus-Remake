@@ -14,32 +14,32 @@ namespace Pepsi
     public partial class Form1 : Form
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-
         public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
 
         private const int MOUSEEVENTF_LEFTDOWN = 0x02;
         private const int MOUSEEVENTF_LEFTUP = 0x04;
-        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
-        private const int MOUSEEVENTF_RIGHTUP = 0x10;
+
+        readonly Random rnd = new Random();
+        readonly int resolutionX = Screen.PrimaryScreen.Bounds.Width;
+        readonly int resolutionY = Screen.PrimaryScreen.Bounds.Height;
+
+        int positionOfCursorX;
+        int positionOfCursorY;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        bool enableProgram;
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            enableProgram = true;
             do
             {
-                Random rnd = new Random();
-                int positionOfCursorX = rnd.Next(1, 2500);
-                int positionOfCursorY = rnd.Next(1, 1500);
+                positionOfCursorX = rnd.Next(0, resolutionX);
+                positionOfCursorY = rnd.Next(0, resolutionY);
                 Cursor.Position = new Point(positionOfCursorX, positionOfCursorY);
                 mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, positionOfCursorX, positionOfCursorY, 0, 0);
-            } while (enableProgram);
+            } while (true);
         }
     }
 }
